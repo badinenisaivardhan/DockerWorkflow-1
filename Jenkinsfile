@@ -1,31 +1,28 @@
 pipeline {
   agent any
   stages {
-    stage('Cloning Git') {
-        steps{
-            script{
-                "git clone https://github.com/badinenisaivardhan/docker-1.git"
-                "scp badinenisaivardhan@192.168.0.100:/home/badinenisaivardhan/Desktop/"
-            }
-        }
-    }
     stage('Change To Host') {
       steps{
         sh "ssh badinenisaivardhan@192.168.0.100"  
       }
     }
+    stage('Cloning Git') {
+        steps{
+            sh "cd Desktop"
+            sh "git clone https://github.com/badinenisaivardhan/docker-1.git"
+            sh "cd docker-1"
+            
+        }
+    }
     stage('Build Docker File') {
       steps{
-        script {
-          "docker build . -t node/web-app"
-        }
+        sh "docker build . -t node/web-app"
       }
     }
     stage('Start Container On Build Image') {
       steps{
-        script {
-          "docker run -d -p 9000:9000 -name nodeapp node/web-app"
-        }
+        sh "docker run -d -p 9000:9000 -name nodeapp node/web-app"
+        
       }
     }
     stage('Testing The Endpoint') {
