@@ -4,7 +4,6 @@ pipeline {
     stage('Docker Build & Deploy') {
       steps{
          sh """ssh -tt badinenisaivardhan@192.168.0.100 << EOF 
-            pwd
             cd Desktop
             rm -rf docker-1
             git clone https://github.com/badinenisaivardhan/docker-1.git
