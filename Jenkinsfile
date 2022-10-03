@@ -14,7 +14,7 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          docker build . -t node/web-app
+          docker build -t node/web-app .
         }
       }
     }
