@@ -1,15 +1,18 @@
 pipeline {
   agent any
   stages {
+    stage('Cloning Git') {
+        steps{
+            git 'https://github.com/badinenisaivardhan/docker-1.git'
+            script{
+                "scp . badinenisaivardhan@192.168.0.100:/home/badinenisaivardhan/Desktop/"
+            }
+        }
+    }
     stage('Change To Host') {
       steps{
         sh "ssh badinenisaivardhan@192.168.0.100"  
       }
-    }
-    stage('Cloning our Git') {
-        steps {
-            git 'https://github.com/badinenisaivardhan/docker-1.git'
-        }
     }
     stage('Build Docker File') {
       steps{
