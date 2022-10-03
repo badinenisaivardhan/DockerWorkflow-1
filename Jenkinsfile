@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Testing The Endpoint') {
       steps{
-        sh " curl -i localhost:3000"  
+        sh " curl -i localhost:3000"   
       }
     }
   }
