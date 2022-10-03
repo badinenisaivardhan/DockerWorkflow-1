@@ -5,6 +5,7 @@ pipeline {
       steps{
         sh ''' 
         ssh badinenisaivardhan@192.168.0.100
+        pwd
         cd Desktop
         git clone https://github.com/badinenisaivardhan/docker-1.git
         cd docker-1
