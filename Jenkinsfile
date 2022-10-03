@@ -8,9 +8,7 @@ pipeline {
     }
     stage('Cloning Git') {
         steps{
-            sh """" 
-            cd Desktop
-            """ 
+            sh 'cd Desktop'  
         }
     }
     stage('Build Docker File') {
