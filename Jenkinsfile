@@ -7,7 +7,7 @@ pipeline {
             git clone https://github.com/badinenisaivardhan/docker-1.git
             cd docker-1
             docker build -t nodeapp .
-            docker run -t -d -p 3000:3000 --name nodeapp nodeapp
+            docker run -d -p 3000:3000 --name nodeapp-1 nodeapp
             exit
             EOF"""
       }
