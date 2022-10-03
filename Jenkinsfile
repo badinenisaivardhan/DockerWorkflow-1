@@ -3,15 +3,15 @@ pipeline {
   stages {
     stage('Docker Build & Deploy') {
       steps{
-        sh ''' #!/bin/bash
-            ssh badinenisaivardhan@192.168.0.100
+         sh """ssh -tt badinenisaivardhan@192.168.0.100 << EOF 
             pwd
             cd Desktop
             git clone https://github.com/badinenisaivardhan/docker-1.git
             cd docker-1
             docker build . -t node/web-app
             docker run -d -p 9000:9000 -name nodeapp node/web-app
-        '''
+            exit
+            EOF"""
       }
     }
     stage('Testing The Endpoint') {
