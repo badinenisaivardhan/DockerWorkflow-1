@@ -6,8 +6,8 @@ pipeline {
          sh """ssh -tt badinenisaivardhan@192.168.0.100 << EOF 
             git clone https://github.com/badinenisaivardhan/docker-1.git
             cd docker-1
-            docker build --no-cache -t nodeapp .
-            docker run -d -p 3000:3000 --name nodeapp nodeapp
+            docker build --no-cache -t NodeApp .
+            docker run -d -p 3000:3000 --name NodeApp NodeApp
             exit
             EOF"""
       }

@@ -1,6 +1,12 @@
 FROM node:16
-COPY . /usr/src/app
+RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
+# Install app dependencies
+COPY package.json /usr/src/app/
 RUN npm install
-EXPOSE 3000
-ENTRYPOINT [ "node", "server.js" ]
+
+# Bundle app source
+COPY . /usr/src/app
+
+EXPOSE 8080
+CMD [ "npm", "start" ]
