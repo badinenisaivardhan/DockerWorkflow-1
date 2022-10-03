@@ -1,12 +1,20 @@
 pipeline {
   environment {
-    registry = "gustavoapolinario/docker-test"
-    registryCredential = 'dockerhub'
-    dockerImage = ''
   }
   agent any
   stages {
-    stage('Building image') {
+    stage('Change To Host') {
+      steps{
+        sh "ssh badinenisaivardhan@192.168.0.100"  
+      }
+    }
+    stages {
+        stage('Cloning our Git') {
+        steps {
+        git 'https://github.com/badinenisaivardhan/docker-1.git'
+        }
+        }
+    stage('Build Docker File') {
       steps{
         script {
           "docker build . -t node/web-app"
