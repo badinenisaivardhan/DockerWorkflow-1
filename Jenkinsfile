@@ -1,6 +1,4 @@
 pipeline {
-  environment {
-  }
   agent any
   stages {
     stage('Change To Host') {
