@@ -1,6 +1,7 @@
 FROM node:18-alpine
-WORKDIR /usr/src/
-COPY package*.json server.js .
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY package*.json server.js /usr/src/app/
 RUN npm install
 EXPOSE 3000
-CMD ["node", "server.js"]
+CMD ["npm", "start"]
