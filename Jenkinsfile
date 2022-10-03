@@ -14,14 +14,14 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          docker build -t node/web-app .
+          "docker build . -t node/web-app"
         }
       }
     }
     stage('Start Container On Build Image') {
       steps{
         script {
-          docker run -d -p 9000:9000 -name nodeapp node/web-app
+          "docker run -d -p 9000:9000 -name nodeapp node/web-app"
         }
       }
     }
