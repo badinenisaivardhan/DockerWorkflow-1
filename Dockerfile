@@ -8,5 +8,5 @@ RUN npm install
 # Bundle app source
 COPY . /usr/src/app
 
-EXPOSE 8080
-RUN [ "npm", "start" ]
+EXPOSE 3000
+ENTRYPOINT [ "node", "server.js" ]

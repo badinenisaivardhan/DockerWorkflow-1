@@ -10,7 +10,7 @@ pipeline {
             cd docker-1
             docker build --no-cache -t mynodeapp .
             docker run -d -p 3000:3000 --name mynodeapp mynodeapp
-            exit
+            exit()
             EOF"""
       }
     }
