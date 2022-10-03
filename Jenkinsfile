@@ -8,12 +8,11 @@ pipeline {
         sh "ssh badinenisaivardhan@192.168.0.100"  
       }
     }
-    stages {
-        stage('Cloning our Git') {
+    stage('Cloning our Git') {
         steps {
-        git 'https://github.com/badinenisaivardhan/docker-1.git'
+            git 'https://github.com/badinenisaivardhan/docker-1.git'
         }
-        }
+    }
     stage('Build Docker File') {
       steps{
         script {
