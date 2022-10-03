@@ -8,7 +8,7 @@ pipeline {
     }
     stage('Cloning Git') {
         steps{
-            sh "cd Desktop"
+            sh "cd Desktop/"
             sh "git clone https://github.com/badinenisaivardhan/docker-1.git"
             sh "cd docker-1"
             
