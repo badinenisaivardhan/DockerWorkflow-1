@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('Cloning Git') {
         steps{
-            "git clone https://github.com/badinenisaivardhan/docker-1.git"
             script{
+                "git clone https://github.com/badinenisaivardhan/docker-1.git"
                 "scp . badinenisaivardhan@192.168.0.100:/home/badinenisaivardhan/Desktop/"
             }
         }
