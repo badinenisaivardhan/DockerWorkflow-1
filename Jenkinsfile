@@ -10,6 +10,7 @@ pipeline {
             cd docker-1
             docker build . -t node/web-app
             docker run -d -p 9000:9000 --name nodeapp node/web-app
+            exit
             EOF"""
       }
     }
