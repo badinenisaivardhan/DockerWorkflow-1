@@ -16,7 +16,7 @@ pipeline {
     }
     stage('Testing The Endpoint') {
       steps{
-        sh 'sleep 300'
+        sh 'sleep 60'
         sh "curl -i 192.168.0.100:3000"   
       }
     }
