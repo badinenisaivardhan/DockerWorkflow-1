@@ -27,7 +27,7 @@ pipeline {
     }
     stage('Testing The Endpoint') {
       steps{
-        sh " curl -i localhost:9000"
+        sh " curl -i localhost:9000" 
       }
     }
   }
