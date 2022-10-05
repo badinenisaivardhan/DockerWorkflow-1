@@ -13,10 +13,15 @@ pipeline {
     }
     stage("Stop Exisitng Running Container and Remove Container "){
         steps{
-        sh 'docker stop mynodeapp'
-        sh 'docker rm mynodeapp -f'
-        }
-    }
+                try {
+                    sh 'docker stop mynodeapp'
+                    sh 'docker rm mynodeapp -f'
+                } catch {
+                    sh 'echo No Running Containers Found'
+                
+                }
+            }
+    }    
     stage("Create Container from Build"){
         steps{
         sh 'docker run -d -p 3000:3000 --name mynodeapp mynodeapp'
