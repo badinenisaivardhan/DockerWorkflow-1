@@ -16,8 +16,8 @@ pipeline {
                 try {
                     sh 'docker stop mynodeapp'
                     sh 'docker rm mynodeapp -f'
-                } catch {
-                    sh 'echo No Running Containers Found'
+                } catch (err) {
+                    echo "No Running Container"
                 
                 }
             }
