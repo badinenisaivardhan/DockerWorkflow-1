@@ -11,7 +11,7 @@ pipeline {
          sh 'docker build --no-cache -t mynodeapp .'
         }
     }
-    stage("Stop Running Container and Remove Container "){
+    stage("Stop Exisitng Running Container and Remove Container "){
         steps{
         sh 'docker stop mynodeapp'
         sh 'docker rm mynodeapp -f'
